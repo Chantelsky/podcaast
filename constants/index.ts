@@ -88,13 +88,6 @@ export const podcastData = [
       'https://lovely-flamingo-139.convex.cloud/api/storage/b8ea40c7-aafb-401a-9129-73c515a73ab5',
   },
   {
-    id: 7,
-    title: 'IMPAULSIVE',
-    description: 'A long form, in-depth conversation',
-    imgURL:
-      'https://lovely-flamingo-139.convex.cloud/api/storage/8a55d662-fe3f-4bcf-b78b-3b2f3d3def5c',
-  },
-  {
     id: 8,
     title: 'Ted Tech',
     description: 'This is how the news should sound',
