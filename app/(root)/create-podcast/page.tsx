@@ -84,7 +84,7 @@ const CreatePodcast = () => {
                   </FormLabel>
                   <FormControl>
                     <Input
-                      className='input-class focus-visible:ring-orange-1'
+                      className='input-class focus-visible:ring-offset-orange-1'
                       placeholder='Podcast Title'
                       {...field}
                     />
@@ -100,7 +100,7 @@ const CreatePodcast = () => {
               <Select onValueChange={(value) => setVoiceType(value)}>
                 <SelectTrigger
                   className={cn(
-                    'text-16 w-full border-none bg-black-1 text-gray-1'
+                    'text-16 w-full border-none bg-black-1 text-gray-1 focus-visible:ring-offset-orange-1'
                   )}
                 >
                   <SelectValue
@@ -108,7 +108,7 @@ const CreatePodcast = () => {
                     className='placeholder:text-gray-1'
                   />
                 </SelectTrigger>
-                <SelectContent className='text-16 border-none bg-black-1 font-bold text-white-1 focus:ring-orange-1'>
+                <SelectContent className='text-16 border-none bg-black-1 font-bold text-white-1 focus-visible:ring-offset-orange-1'>
                   {voiceCategories.map((voice) => (
                     <SelectItem
                       key={voice}
@@ -138,7 +138,7 @@ const CreatePodcast = () => {
                   </FormLabel>
                   <FormControl>
                     <Textarea
-                      className='input-class focus-visible:ring-orange-1'
+                      className='input-class focus-visible:ring-offset-orange-1'
                       placeholder='Write a short podcast description'
                       {...field}
                     />
@@ -149,7 +149,15 @@ const CreatePodcast = () => {
             />
           </div>
           <div className='flex flex-col pt-10'>
-            <GeneratePodcast />
+            <GeneratePodcast
+              setAudioStorageId={setaudioStorageId}
+              setAudio={setAudioUrl}
+              voiceType={voiceType}
+              audio={audioUrl}
+              voicePrompt={voicePrompt}
+              setVoicePrompt={setVoicePrompt}
+              setAudioDuration={setAudioDuration}
+            />
             <GenerateThumbnail />
             <div className='mt-10 w-full'>
               <Button
