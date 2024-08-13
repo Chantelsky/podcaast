@@ -1,6 +1,6 @@
 'use client'
 import { zodResolver } from '@hookform/resolvers/zod'
-import { useForm } from 'react-hook-form'
+import { set, useForm } from 'react-hook-form'
 import { z } from 'zod'
 
 import { Button } from '@/components/ui/button'
@@ -38,7 +38,7 @@ const formSchema = z.object({
 })
 
 const CreatePodcast = () => {
-  const [imagePrompt, setimagePrompt] = useState('')
+  const [imagePrompt, setImagePrompt] = useState('')
   const [imageStorageId, setimageStorageId] = useState<Id<'_storage'> | null>(
     null
   )
@@ -158,7 +158,13 @@ const CreatePodcast = () => {
               setVoicePrompt={setVoicePrompt}
               setAudioDuration={setAudioDuration}
             />
-            <GenerateThumbnail />
+            <GenerateThumbnail
+              setImage={setImageUrl}
+              setImageStorageId={setimageStorageId}
+              image={imageUrl}
+              imagePrompt={imagePrompt}
+              setImagePrompt={setImagePrompt}
+            />
             <div className='mt-10 w-full'>
               <Button
                 type='submit'
