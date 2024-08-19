@@ -1,6 +1,7 @@
-import OpenAI from 'openai'
 import { action } from './_generated/server'
 import { v } from 'convex/values'
+
+import OpenAI from 'openai'
 import { SpeechCreateParams } from 'openai/resources/audio/speech.mjs'
 
 const openai = new OpenAI({
@@ -16,7 +17,8 @@ export const generateAudioAction = action({
       input,
     })
 
-    const buffer = Buffer.from(await mp3.arrayBuffer())
+    const buffer = await mp3.arrayBuffer()
+
     return buffer
   },
 })
@@ -32,7 +34,9 @@ export const generateThumbnail = action({
       n: 1,
     })
     const url = response.data[0].url
+
     if (!url) throw new Error('No image generated')
+
     const imageResponse = await fetch(url)
     const buffer = await imageResponse.arrayBuffer()
     return buffer
