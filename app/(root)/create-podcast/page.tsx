@@ -81,7 +81,6 @@ const CreatePodcast = () => {
     },
   })
 
-  // 2. Define a submit handler.
   async function onSubmit(data: z.infer<typeof formSchema>) {
     try {
       setIsSubmitting(true)

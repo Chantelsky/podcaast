@@ -1,4 +1,5 @@
 import Image from 'next/image'
+import { useRouter } from 'next/navigation'
 
 interface PodcastCardProps {
   title: string
@@ -13,8 +14,18 @@ const PodcastCard = ({
   imgURL,
   podcastId,
 }: PodcastCardProps) => {
+  const router = useRouter()
+
+  const handleViews = () => {
+    // increase views
+    //redirect
+    router.push(`/podcast/${podcastId}`, {
+      scroll: true,
+    })
+  }
+
   return (
-    <div className='cursor-pointer'>
+    <div className='cursor-pointer' onClick={handleViews}>
       <figure className='flex flex-col gap-2'>
         <Image
           src={imgURL}
